@@ -1,15 +1,13 @@
-// Version 1.0
+// Version 1.1
 
 var request = require('request');
 
-var sensorToMonitor = "TiltSensor";
-var originator = "Cae-" + sensorToMonitor;
+var sensorDataContainer = "TiltSensor/DATA";
 
 var options = {
-	uri: "http://127.0.0.1:8080/server/" + sensorToMonitor + "/DATA?rcn=4",
+	uri: "http://127.0.0.1:8080/server/" + sensorDataContainer + "?rcn=4",
 	method: "GET",
 	headers: {
-		"X-M2M-Origin":  originator,
 		"Content-Type": "application/json"
 	}
 };
@@ -27,7 +25,7 @@ request(options, function (err, resp, body) {
 
 		var obj = JSON.parse(body);
 		console.log("\n\nEffective content of CINs = ");
-		obj["m2m:cnt"]["m2m:cin"].forEach(elt => {
+		obj["m2m:cnt"]["cin"].forEach(elt => {
 			console.log(elt.con);	
 		});
 	}

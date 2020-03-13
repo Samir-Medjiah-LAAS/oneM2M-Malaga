@@ -1,15 +1,12 @@
-// Version 1.0
+// Version 1.1
 
 var request = require('request');
-
-var originator  = "Cae-Monitor"
 
 function createCIN(aeName, commandValue){
 	var options = {
 		uri: "http://127.0.0.1:8080/server/"+ aeName +"/COMMAND",
 		method: "POST",
 		headers: {
-			"X-M2M-Origin": originator,
 			"Content-Type": "application/json;ty=4"
 		},
 		json: {

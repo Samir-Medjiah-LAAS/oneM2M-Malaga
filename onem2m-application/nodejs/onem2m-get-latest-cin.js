@@ -1,15 +1,13 @@
-// Version 1.0*
+// Version 1.1
 
 var request = require('request');
 
-var sensorToMonitor = "TiltSensor";
-var originator = "Cae-" + sensorToMonitor;
+var sensorDataContainer = "TiltSensor/DATA";
 
 var options = {
-	uri: "http://127.0.0.1:8080/server/" + sensorToMonitor + "/DATA/la",
+	uri: "http://127.0.0.1:8080/server/" + sensorDataContainer + "/la",
 	method: "GET",
 	headers: {
-		"X-M2M-Origin": originator ,
 		"Content-Type": "application/json"
 	}
 };
